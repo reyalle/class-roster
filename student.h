@@ -14,14 +14,8 @@ private:
     DegreeProgram degreeProgram;
 public:
     Student(
-        std::string studentID,
-        std::string firstName,
-        std::string lastName,
-        std::string email,
-        int age,
-        int daysInCourse[],
-        DegreeProgram degreeProgram
-    );
+        std::string studentID, std::string firstName, std::string lastName, std::string email,
+        int age, int daysInCourse[], DegreeProgram degreeProgram);
 
     // Getters
     std::string getStudentID() const;
