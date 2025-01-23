@@ -23,7 +23,7 @@ public:
     std::string getLastName() const;
     std::string getEmailAddress() const;
     int getAge() const;
-    int getDaysInCourse() const;
+    int* getDaysInCourse() const;
     DegreeProgram getDegreeProgram() const;
 
     // Setters
