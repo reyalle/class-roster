@@ -37,4 +37,15 @@ void Student::setDaysInCourse(int daysInCourse[]) {
 }
 void Student::setDegreeProgram(DegreeProgram degreeProgram) { this->degreeProgram = degreeProgram; }
 
-
+// Print function
+void Student::print() const {
+    std::cout << "Student ID: " << studentID << "\t"
+              << "First Name: " << firstName << "\t"
+              << "Last Name: " << lastName << "\t"
+              << "Email: " << email << "\t"
+              << "Age: " << age << "\t"
+              << "Days In Course: {" << daysInCourse[0] << ", " << daysInCourse[1] << ", " << daysInCourse[2] << "}\t"
+              << "Degree Program: "
+              << (degreeProgram == SECURITY ? "SECURITY" : degreeProgram == NETWORK ? "NETWORK" : "SOFTWARE")
+              << std::endl;
+}
