@@ -1,42 +1,50 @@
-#include <string>
-#include "degree.h"
 #ifndef STUDENT_H
 #define STUDENT_H
+#include <iostream>
+#include <string>
+#include "degree.h"
+
+using namespace std;
+
 
 class Student {
+
 private:
-    std::string studentID;
-    std::string firstName;
-    std::string lastName;
-    std::string email;
+    string studentID;
+    string firstName;
+    string lastName;
+    string emailAddress;
     int age;
     int daysInCourse[3];
-    DegreeProgram degreeProgram;
-public:
-    Student(
-        std::string studentID, std::string firstName, std::string lastName, std::string email,
-        int age, int daysInCourse[], DegreeProgram degreeProgram);
+    degreeProgram degree;
 
-    // Getters
-    std::string getStudentID() const;
-    std::string getFirstName() const;
-    std::string getLastName() const;
-    std::string getEmailAddress() const;
-    int getAge() const;
-    int* getDaysInCourse() const;
-    DegreeProgram getDegreeProgram() const;
+public:
+
+    Student();
 
     // Setters
-    void setStudentID(std::string studentID);
-    void setFirstName(std::string firstName);
-    void setLastName(std::string lastName);
-    void setEmailAddress(std::string email);
+    void setStudentID(string studentID);
+    void setFirstName(string firstName);
+    void setLastName(string lastName);
+    void setEmailAddress(string emailAddress);
     void setAge(int age);
-    void setDaysInCourse(int daysInCOurse[]);
-    void setDegreeProgram(DegreeProgram degreeProgram);
+    void setDaysInCourse(int daysInCourse1, int daysInCourse2, int daysInCourse3);
+    void setDegreeProgram(degreeProgram degree);
+
+    // Getters
+    string getStudentID();
+    string getFirstName();
+    string getLastName();
+    string getEmailAddress();
+    int getAge();
+    int getDaysInCourse1();
+    int getDaysInCourse2();
+    int getDaysInCourse3();
+    degreeProgram getDegreeProgram();
 
     //Print
-    void print() const;
+    void printStudentInfo();
 };
 
 #endif
+

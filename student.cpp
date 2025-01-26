@@ -1,51 +1,99 @@
 #include "student.h"
+#include "degree.h"
 #include <iostream>
+#include <string>
 
-//Constuctor
-Student::Student(std::string studentID, std::string firstName, std::string lastName, std::string email,
-                int age, int daysInCourse[], DegreeProgram degreeProgram) {
-    this-> studentID = studentID;
-    this-> firstName = firstName;
-    this-> lastName = lastName;
-    this->email = email;
+using namespace std;
+
+// Constructor
+Student::Student() {
+    this->studentID = "";
+    this->firstName = "";
+    this->lastName = "";
+    this->emailAddress = "";
+    this->age = 0;
+    this->daysInCourse[0] = 0;
+    this->daysInCourse[1] = 0;
+    this->daysInCourse[2] = 0;
+    this->degree = SECURITY;
+
+}
+
+// Setters
+void Student::setStudentID(string studentID) {
+    this->studentID = studentID;
+}
+
+void Student::setFirstName(string firstName) {
+    this->firstName = firstName;
+}
+
+void Student::setLastName(string lastName) {
+    this->lastName = lastName;
+}
+
+void Student::setEmailAddress(string emailAddress) {
+    this->emailAddress = emailAddress;
+}
+
+void Student::setAge(int age) {
     this->age = age;
-    for(int i = 0; i < 3; i++) {
-        this->daysInCourse[i] = daysInCourse[i];
-    };
-    this->degreeProgram = degreeProgram;
+}
+
+void Student::setDaysInCourse(int daysInCourse1, int daysInCourse2, int daysInCourse3) {
+    this->daysInCourse[0] = daysInCourse1;
+    this->daysInCourse[1] = daysInCourse2;
+    this->daysInCourse[2] = daysInCourse3;
+}
+
+void Student::setDegreeProgram(degreeProgram degree) {
+    this->degree = degree;
 }
 
 // Getters
-std::string Student::getStudentID() const { return studentID; }
-std::string Student::getFirstName() const { return firstName; }
-std::string Student::getLastName() const { return lastName; }
-std::string Student::getEmailAddress() const { return email; }
-int Student::getAge() const { return age; }
-int* Student::getDaysInCourse() const { return daysInCourse[]; }
-DegreeProgram Student::getDegreeProgram() const { return degreeProgram; }
-
-// Setters
-void Student::setStudentID(std::string studentID) { this->studentID = studentID; }
-void Student::setFirstName(std::string firstName) { this->firstName = firstName; }
-void Student::setLastName(std::string lastName) { this->lastName = lastName; }
-void Student::setEmailAddress(std::string emailAddress) { this->email = emailAddress; }
-void Student::setAge(int age) { this->age = age; }
-void Student::setDaysInCourse(int daysInCourse[]) {
-    for (int i = 0; i < 3; i++) {
-        this->daysInCourse[i] = daysInCourse[i];
-    }
+string Student::getStudentID() {
+    return studentID;
 }
-void Student::setDegreeProgram(DegreeProgram degreeProgram) { this->degreeProgram = degreeProgram; }
 
-// Print
-void Student::print() const {
-    std::cout << "Student ID: " << studentID << "\t"
-              << "First Name: " << firstName << "\t"
-              << "Last Name: " << lastName << "\t"
-              << "Email: " << email << "\t"
-              << "Age: " << age << "\t"
-              << "Days In Course: {" << daysInCourse[0] << ", " << daysInCourse[1] << ", " << daysInCourse[2] << "}\t"
-              << "Degree Program: "
-              << (degreeProgram == SECURITY ? "SECURITY" : degreeProgram == NETWORK ? "NETWORK" : "SOFTWARE")
-              << std::endl;
+string Student::getFirstName() {
+    return firstName;
+}
+
+string Student::getLastName() {
+    return lastName;
+}
+
+string Student::getEmailAddress() {
+    return emailAddress;
+}
+
+int Student::getAge() {
+    return age;
+}
+
+int Student::getDaysInCourse1() {
+    return daysInCourse[0];
+}
+
+int Student::getDaysInCourse2() {
+    return daysInCourse[1];
+}
+
+int Student::getDaysInCourse3() {
+    return daysInCourse[2];
+}
+
+degreeProgram Student::getDegreeProgram() {
+    return degree;
+}
+
+// Print function
+void Student::printStudentInfo() {
+    cout << studentID << "\t";
+    cout << firstName << "\t" << lastName << "\t";
+    cout << emailAddress << "\t";
+    cout << age << "\t";
+    cout << "{ " << daysInCourse[0] << ", " << daysInCourse[1] << ", " << daysInCourse[2] << " }\t";
+    string degreeStrings[] = {"SECURITY", "NETWORK", "SOFTWARE"};
+    cout << degreeStrings[degree] << endl;
 }
